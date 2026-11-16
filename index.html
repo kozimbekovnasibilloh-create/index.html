@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 16 Pro & Ecosystem — Apple</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        appleBlack: '#000000',
+                        appleSurface: '#1d1d1f',
+                        appleCard: '#161617',
+                        appleOffWhite: '#f5f5f7',
+                        appleGray: '#86868b',
+                        appleBlue: '#2997ff',
+                        applePill: '#0071e3',
+                        applePillHover: '#0077ed'
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --chassis-edge: linear-gradient(135deg, #d7cbb8 0%, #8e8373 25%, #e5dac9 50%, #6d6457 75%, #c5b8a5 100%);
+            --chassis-back: linear-gradient(145deg, #2b2723 0%, #171513 60%, #0d0c0b 100%);
+            --wallpaper-grad: radial-gradient(circle at 25% 20%, #d49b6a 0%, transparent 45%),
+                              radial-gradient(circle at 80% 35%, #5c4332 0%, transparent 50%),
+                              radial-gradient(circle at 40% 85%, #8c5e3c 0%, transparent 55%),
+                              linear-gradient(180deg, #140f0c 0%, #050403 100%);
+            --rim-glow: rgba(215, 203, 184, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: #000000;
+            color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            overflow-x: clip;
+            margin: 0;
+        }
+
+        /* Official Apple Global Nav & Local Ribbon Glassmorphism */
+        .apple-global-nav {
+            background: rgba(22, 22, 23, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        .apple-local-nav {
+            background: rgba(29, 29, 31, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+
+        /* Typography Gradients */
+        .titanium-headline {
+            background: linear-gradient(180deg, #ffffff 0%, #e5dcd0 55%, #9e9181 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .apple-bento-card {
+            background: linear-gradient(180deg, rgba(29, 29, 31, 0.78) 0%, rgba(18, 18, 20, 0.92) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+        }
+
+        .apple-bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        /* 3D Hardware Stage Perspective */
+        .hardware-perspective {
+            perspective: 1800px;
+            transform-style: preserve-3d;
+        }
+
+        /* Photorealistic iPhone Chassis */
+        .iphone-assembly {
+            width: 276px;
+            height: 564px;
+            position: relative;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .iphone-chassis {
+            width: 100%;
+            height: 100%;
+            border-radius: 52px;
+            background: var(--chassis-edge);
+            padding: 3.5px;
+            box-shadow:
+                0 35px 80px -15px rgba(0, 0, 0, 0.92),
+                0 0 60px -10px var(--rim-glow),
+                inset 0 0 2px 1px rgba(255, 255, 255, 0.65);
+            position: relative;
+            transition: background 0.6s ease, box-shadow 0.6s ease;
+        }
+
+        /* Brushed Titanium Antenna Bands */
+        .antenna-band {
+            position: absolute;
+            background: rgba(20, 20, 22, 0.65);
+            z-index: 5;
+        }
+
+        /* Physical Side Buttons */
+        .hw-btn-left {
+            position: absolute;
+            left: -3px;
+            width: 3px;
+            background: var(--chassis-edge);
+            border-radius: 2px 0 0 2px;
+            box-shadow: -1px 0 2px rgba(255, 255, 255, 0.3);
+        }
+
+        .hw-btn-right {
+            position: absolute;
+            right: -3px;
+            width: 3px;
+            background: var(--chassis-edge);
+            border-radius: 0 2px 2px 0;
+            box-shadow: 1px 0 2px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Ultra-Thin Ceramic Shield Bezel & OLED Screen */
+        .iphone-bezel {
+            width: 100%;
+            height: 100%;
+            background: #020203;
+            border-radius: 48.5px;
+            padding: 7px;
+            position: relative;
+            box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.14);
+        }
+
+        .iphone-oled {
+            width: 100%;
+            height: 100%;
+            border-radius: 42px;
+            background: var(--wallpaper-grad);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.7s ease;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Glass Specular Reflection Sweep */
+        .oled-glass-sheen {
+            position: absolute;
+            inset: -50%;
+            background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.08) 46%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.03) 54%, transparent 65%);
+            pointer-events: none;
+            z-index: 30;
+            will-change: transform;
+        }
+
+        /* Dynamic Island */
+        .dynamic-island {
+            width: 84px;
+            height: 24px;
+            background: #000000;
+            border-radius: 999px;
+            position: absolute;
+            top: 11px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 7px;
+            box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12);
+            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .truedepth-lens {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #2b4c7e 0%, #0d1626 55%, #000000 100%);
+            box-shadow: inset 0 0 2px rgba(100, 180, 255, 0.6);
+        }
+
+        /* Pro Triple Camera Array Overlay (Revealed on Stage 2 Tilt) */
+        .camera-module-overlay {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            width: 116px;
+            height: 116px;
+            border-radius: 28px;
+            background: rgba(24, 24, 27, 0.88);
+            backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+            z-index: 35;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.88);
+            transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .sapphire-lens {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c7bca9, #5a5349);
+            padding: 3px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.85);
+            position: relative;
+        }
+
+        .sapphire-glass {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 30%, #1d3557 0%, #090d16 48%, #020305 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sapphire-glass::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 7px;
+            width: 12px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(135, 206, 250, 0.45);
+            transform: rotate(-30deg);
+        }
+
+        .sensor-aperture {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #38bdf8 0%, #1e3a8a 40%, #000000 75%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* MagSafe Green Charging Ring Animation */
+        @keyframes magsafePulse {
+            0% { transform: scale(0.75); opacity: 0; }
+            30% { opacity: 1; }
+            75% { transform: scale(1.02); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.95; }
+        }
+
+        @keyframes magsafeBolt {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 12px #30d158); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 22px #30d158); }
+        }
+
+        .magsafe-ring-active {
+            animation: magsafePulse 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .magsafe-bolt-glow {
+            animation: magsafeBolt 2s ease-in-out infinite;
+        }
+
+        /* Floating Satellite Hardware Styling */
+        .satellite-device {
+            position: absolute;
+            will-change: transform, opacity;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c2c2e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #48484a;
+        }
+    </style>
+</head>
+<body class="bg-black text-[#f5f5f7] selection:bg-[#0071e3] selection:text-white">
+
+    <!-- Interactive Apple Store Quick-View / Bag Modal -->
+    <div id="appleModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/75 backdrop-blur-xl px-4 transition-opacity duration-300">
+        <div class="bg-[#1d1d1f] border border-white/15 rounded-3xl max-w-md w-full p-7 shadow-2xl relative">
+            <button onclick="closeAppleModal()" aria-label="Close" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-[#86868b] hover:text-white transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-2xl bg-[#0071e3]/15 border border-[#0071e3]/30 flex items-center justify-center text-[#2997ff]">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.08-7.96-9.24-17.16-12.48-27.6-3.24-10.44-4.86-20.37-4.86-29.8 0-11.11 2.78-20.42 8.34-27.94 5.56-7.52 12.63-11.4 21.2-11.63 4.47 0 9.64 1.38 15.52 4.13 5.87 2.75 9.65 4.16 11.33 4.24 1.34 0 5.53-1.63 12.57-4.89 7.04-3.26 12.98-4.64 17.83-4.13 13.2 1.07 23.13 6.27 29.78 15.61-11.81 7.17-17.61 17.15-17.4 29.93.12 9.98 3.84 18.28 11.15 24.9 4.97 4.55 10.74 7.45 17.31 8.71-1.39 4.27-2.92 8.36-4.59 12.26zM119.22 31.01c0 7.83-2.86 15.13-8.58 21.9-6.89 8.06-15.23 12.72-24.28 11.98-.12-.96-.18-1.98-.18-3.06 0-7.52 3.27-15.57 9.08-22.15 2.89-3.32 6.57-6.08 11.03-8.28 4.46-2.19 8.68-3.41 12.66-3.65.18 1.11.27 2.2.27 3.26z"/></svg>
+                </div>
+                <div>
+                    <p id="modalEyebrow" class="text-[11px] font-semibold uppercase tracking-wider text-[#2997ff]">Apple Store</p>
+                    <h3 id="modalTitle" class="text-lg font-semibold text-white tracking-tight">iPhone 16 Pro</h3>
+                </div>
+            </div>
+            <p id="modalBody" class="text-sm text-[#86868b] leading-relaxed mb-6">
+                Select your preferred finish and storage capacity. Includes complimentary Apple Trade In valuation and Express Delivery.
+            </p>
+            <div class="flex items-center justify-between p-3.5 rounded-2xl bg-black/50 border border-white/10 mb-6">
+                <div>
+                    <p class="text-xs text-[#86868b]">Selected Finish</p>
+                    <p id="modalFinishLabel" class="text-sm font-medium text-white">Desert Titanium • 256GB</p>
+                </div>
+                <span id="modalPriceLabel" class="text-sm font-semibold text-white">$999 or $41.62/mo.</span>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="closeAppleModal()" class="flex-1 py-2.5 px-4 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm font-medium transition-colors">
+                    Continue to Bag
+                </button>
+                <button onclick="closeAppleModal()" class="py-2.5 px-5 rounded-full bg-white/10 hover:bg-white/15 text-white text-sm font-medium transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Official Apple Global Navigation Bar (44px) -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <nav aria-label="Global" class="apple-global-nav h-[44px] border-b border-white/[0.08]">
+            <div class="max-w-[1024px] mx-auto h-full px-4 flex items-center justify-between text-[12px] font-normal tracking-[-0.01em] text-[#f5f5f7]/80">
+                <!-- Crisp Apple SVG Logo -->
+                <a href="#top" aria-label="Apple" class="text-[#f5f5f7]/90 hover:text-white transition-colors p-1">
+                    <svg class="w-[14px] h-[17px] fill-current" viewBox="0 0 170 170">
+                        <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.08-7.96-9.24-17.16-12.48-27.6-3.24-10.44-4.86-20.37-4.86-29.8 0-11.11 2.78-20.42 8.34-27.94 5.56-7.52 12.63-11.4 21.2-11.63 4.47 0 9.64 1.38 15.52 4.13 5.87 2.75 9.65 4.16 11.33 4.24 1.34 0 5.53-1.63 12.57-4.89 7.04-3.26 12.98-4.64 17.83-4.13 13.2 1.07 23.13 6.27 29.78 15.61-11.81 7.17-17.61 17.15-17.4 29.93.12 9.98 3.84 18.28 11.15 24.9 4.97 4.55 10.74 7.45 17.31 8.71-1.39 4.27-2.92 8.36-4.59 12.26zM119.22 31.01c0 7.83-2.86 15.13-8.58 21.9-6.89 8.06-15.23 12.72-24.28 11.98-.12-.96-.18-1.98-.18-3.06 0-7.52 3.27-15.57 9.08-22.15 2.89-3.32 6.57-6.08 11.03-8.28 4.46-2.19 8.68-3.41 12.66-3.65.18 1.11.27 2.2.27 3.26z"/>
+                    </svg>
+                </a>
+
+                <a href="#choreography" class="hidden lg:inline hover:text-white transition-colors">Store</a>
+                <a href="#ecosystem-bento" class="hidden lg:inline hover:text-white transition-colors">Mac</a>
+                <a href="#ecosystem-bento" class="hidden lg:inline hover:text-white transition-colors">iPad</a>
+                <a href="#choreography" class="hidden md:inline text-white font-medium">iPhone</a>
+                <a href="#ecosystem-bento" class="hidden md:inline hover:text-white transition-colors">Watch</a>
+                <a href="#ecosystem-bento" class="hidden lg:inline hover:text-white transition-colors">Vision</a>
+                <a href="#ecosystem-bento" class="hidden md:inline hover:text-white transition-colors">AirPods</a>
+                <a href="#ecosystem-bento" class="hidden lg:inline hover:text-white transition-colors">TV &amp; Home</a>
+                <a href="#ecosystem-bento" class="hidden lg:inline hover:text-white transition-colors">Entertainment</a>
+                <a href="#ecosystem-bento" class="hidden md:inline hover:text-white transition-colors">Accessories</a>
+                <a href="#footer-directory" class="hidden md:inline hover:text-white transition-colors">Support</a>
+
+                <div class="flex items-center gap-5">
+                    <!-- Search SVG -->
+                    <button onclick="openAppleModal('Search apple.com', 'Search across iPhone 16 Pro, iPhone 11, Apple Watch Ultra 2, AirPods Pro 2, and MagSafe accessories.', 'Search Catalog', 'Instant Results')" aria-label="Search" class="text-[#f5f5f7]/80 hover:text-white transition-colors">
+                        <svg class="w-[15px] h-[15px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                            <circle cx="10.5" cy="10.5" r="6.5"/>
+                            <path stroke-linecap="round" d="M15.5 15.5L20 20"/>
+                        </svg>
+                    </button>
+                    <!-- Bag SVG -->
+                    <button onclick="openAppleModal('Your Bag', 'Your Apple Store bag is ready for express checkout with free two-hour courier delivery in eligible metros.', '0 Items in Bag', '$0.00')" aria-label="Shopping Bag" class="text-[#f5f5f7]/80 hover:text-white transition-colors">
+                        <svg class="w-[14px] h-[16px]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 7h12l1 13H5L6 7z"/>
+                            <path stroke-linecap="round" d="M9 7V6a3 3 0 016 0v1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sticky Local Product Ribbon -->
+        <div class="apple-local-nav h-[52px] border-b border-white/[0.08]">
+            <div class="max-w-[1024px] mx-auto h-full px-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span id="ribbonProductName" class="text-[19px] sm:text-[21px] font-semibold tracking-tight text-white">iPhone 16 Pro</span>
+                    <span class="hidden sm:inline-block text-[11px] font-medium px-2 py-0.5 rounded-full bg-white/10 text-[#86868b]">Titanium &amp; Ecosystem</span>
+                </div>
+                <div class="flex items-center gap-5 text-[12px]">
+                    <a href="#choreography" class="hidden sm:inline text-white/90 hover:text-white">Overview</a>
+                    <a href="#stage-camera" class="hidden sm:inline text-[#86868b] hover:text-white transition-colors">Camera</a>
+                    <a href="#stage-ecosystem" class="hidden sm:inline text-[#86868b] hover:text-white transition-colors">MagSafe</a>
+                    <a href="#ecosystem-bento" class="hidden sm:inline text-[#86868b] hover:text-white transition-colors">Tech Specs</a>
+                    <button onclick="openAppleModal('Buy iPhone 16 Pro', 'Built for Apple Intelligence. Grade 5 Titanium design with Camera Control and 4K 120 fps Dolby Vision.', currentFinishName + ' • 256GB', '$999.00')" class="bg-[#0071e3] hover:bg-[#0077ed] text-white text-[12px] font-normal px-3.5 py-1 rounded-full transition-colors">
+                        Buy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trade-In Promo Strip -->
+    <div id="top" class="pt-[96px] bg-[#1d1d1f] border-b border-white/[0.06]">
+        <div class="max-w-[1024px] mx-auto px-4 py-3 text-center text-[13px] text-[#f5f5f7]/90">
+            Get $180–$650 in credit when you trade in iPhone 11 or higher.
+            <button onclick="openAppleModal('Apple Trade In', 'Answer a few questions to get an instant trade-in credit estimate toward a new iPhone.', 'iPhone 11 / 12 / 13 / 14 / 15 Eligible', 'Up to $650 Credit')" class="text-[#2997ff] hover:underline inline-flex items-center gap-0.5 ml-1">
+                See what your device is worth
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- 2. SCROLL-CHOREOGRAPHED CONTINUOUS PRODUCT & SIDE EDITORIAL EXPERIENCE -->
+    <section id="choreography" class="relative bg-black">
+        <!-- Ambient Radial Studio Lighting -->
+        <div id="ambientStudioGlow" class="pointer-events-none fixed inset-0 z-0 opacity-45 transition-all duration-700" style="background: radial-gradient(circle at 50% 48%, rgba(215, 203, 184, 0.16) 0%, rgba(0, 0, 0, 0) 62%);"></div>
+
+        <!-- 3-Column Choreographed Container (420vh total scroll height for smooth continuous stages) -->
+        <div id="scrollTrack" class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- LEFT CONTINUOUS EDITORIAL & SPEC STREAM (Cols 1-4) -->
+            <div class="lg:col-span-4 order-2 lg:order-1 space-y-12 lg:space-y-[32vh] py-12 lg:py-[18vh] z-10">
+
+                <!-- Left Card 1: Stage 1 Hero Intro -->
+                <article class="apple-bento-card rounded-[28px] p-7 sm:p-8" data-stage="1">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#d7cbb8]">Grade 5 Titanium</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">01 / CHASSIS</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        Strength. Beauty. Titanium.
+                    </h2>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-6">
+                        Precision-machined Grade 5 titanium features a refined microblasted texture. With the thinnest borders on any Apple product, the 6.3-inch and 6.9-inch Super Retina XDR displays deliver unmatched visual immersion.
+                    </p>
+                    <!-- Interactive Finish Swatch Selector -->
+                    <div class="pt-4 border-t border-white/10">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs text-[#86868b]">Interactive Finish</span>
+                            <span id="leftSwatchLabel" class="text-xs font-medium text-white">Desert Titanium</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="setFinish('desert')" title="Desert Titanium" class="swatch-btn w-7 h-7 rounded-full ring-2 ring-white ring-offset-2 ring-offset-[#161617] transition-all" style="background: linear-gradient(135deg, #dfd2c0, #9c8c78);"></button>
+                            <button onclick="setFinish('natural')" title="Natural Titanium" class="swatch-btn w-7 h-7 rounded-full opacity-80 hover:opacity-100 transition-all" style="background: linear-gradient(135deg, #d2d0ca, #8a8882);"></button>
+                            <button onclick="setFinish('black')" title="Black Titanium" class="swatch-btn w-7 h-7 rounded-full opacity-80 hover:opacity-100 transition-all" style="background: linear-gradient(135deg, #48484a, #1c1c1e);"></button>
+                            <button onclick="setFinish('white')" title="White Titanium" class="swatch-btn w-7 h-7 rounded-full opacity-80 hover:opacity-100 transition-all" style="background: linear-gradient(135deg, #f5f5f7, #c7c7cc);"></button>
+                            <button onclick="setFinish('purple11')" title="iPhone 11 Lavender Purple" class="swatch-btn w-7 h-7 rounded-full opacity-80 hover:opacity-100 transition-all" style="background: linear-gradient(135deg, #d8c8f0, #9c86c4);"></button>
+                            <button onclick="setFinish('mint11')" title="iPhone 11 Seafoam Green" class="swatch-btn w-7 h-7 rounded-full opacity-80 hover:opacity-100 transition-all" style="background: linear-gradient(135deg, #bfe3d0, #7fb399);"></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Left Card 2: Stage 2 Pro Camera System -->
+                <article id="stage-camera" class="apple-bento-card rounded-[28px] p-7 sm:p-8" data-stage="2">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#2997ff]">Pro Camera System</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">02 / OPTICS</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        4K 120 fps Dolby Vision. Cinemaster.
+                    </h2>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-6">
+                        A second-generation quad-pixel sensor reads data 2x faster, enabling zero shutter lag 48MP ProRAW and studio-grade 4K 120 fps slow-motion video across sapphire-crystal coated lenses.
+                    </p>
+                    <div class="grid grid-cols-3 gap-2.5 text-center">
+                        <div class="rounded-2xl bg-black/60 border border-white/10 p-3">
+                            <p class="text-lg font-semibold text-white">48MP</p>
+                            <p class="text-[11px] text-[#86868b]">Fusion Main</p>
+                        </div>
+                        <div class="rounded-2xl bg-black/60 border border-white/10 p-3">
+                            <p class="text-lg font-semibold text-white">48MP</p>
+                            <p class="text-[11px] text-[#86868b]">Ultra Wide</p>
+                        </div>
+                        <div class="rounded-2xl bg-black/60 border border-white/10 p-3">
+                            <p class="text-lg font-semibold text-white">5x</p>
+                            <p class="text-[11px] text-[#86868b]">Tetraprism</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Left Card 3: Stage 3 MagSafe Wireless Power -->
+                <article id="stage-ecosystem" class="apple-bento-card rounded-[28px] p-7 sm:p-8" data-stage="3">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#30d158]">MagSafe &amp; Qi2</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">03 / POWER</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        Snaps on. Powers up to 25W.
+                    </h2>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-5">
+                        Precision-aligned rare-earth magnets lock the brushed aluminum MagSafe Charger onto the back glass for effortless 25W fast wireless charging—reaching 50% in around 30 minutes.
+                    </p>
+                    <!-- Live Battery Charging Progress Indicator -->
+                    <div class="rounded-2xl bg-black/60 border border-white/10 p-4">
+                        <div class="flex items-center justify-between text-xs mb-2">
+                            <span class="text-[#f5f5f7] font-medium flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-[#30d158] animate-pulse"></span>
+                                MagSafe Wireless Charging
+                            </span>
+                            <span id="leftBatteryPct" class="text-[#30d158] font-semibold">84%</span>
+                        </div>
+                        <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div id="leftBatteryBar" class="h-full rounded-full bg-gradient-to-r from-[#30d158] to-[#63e6be] transition-all duration-500" style="width: 84%;"></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Left Card 4: Stage 4 Legacy & Classic iPhone 11 Edition -->
+                <article class="apple-bento-card rounded-[28px] p-7 sm:p-8" data-stage="4">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#bf5af2]">Iconic Archive</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">04 / EDITION</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-3">
+                        From iPhone 11 to iPhone 16 Pro.
+                    </h2>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-5">
+                        Switch instantaneously between aerospace-grade Pro titanium and classic aerospace aluminum iPhone 11 finishes—complete with Liquid Retina color-matched wallpapers.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="setFinish('purple11')" class="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-colors">
+                            Preview iPhone 11 Purple
+                        </button>
+                        <button onclick="setFinish('desert')" class="px-3.5 py-1.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-xs font-medium text-white transition-colors">
+                            Preview 16 Pro Titanium
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- CENTER PINNED 3D HARDWARE STAGE (Cols 5-8) -->
+            <div class="lg:col-span-4 order-1 lg:order-2 relative">
+                <div class="sticky top-[96px] h-[calc(100vh-96px)] min-h-[640px] flex flex-col items-center justify-between py-6 select-none">
+                    
+                    <!-- Dynamic Stage Header Pill -->
+                    <div class="text-center z-30 px-2">
+                        <p id="stageEyebrow" class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#d7cbb8] mb-1 transition-colors">
+                            iPhone 16 Pro
+                        </p>
+                        <h1 id="stageHeadline" class="titanium-headline text-3xl sm:text-4xl font-bold tracking-tight">
+                            Hello, Apple Intelligence.
+                        </h1>
+                    </div>
+
+                    <!-- Central Interactive Hardware & Orbiting Ecosystem Arena -->
+                    <div class="relative w-full flex-1 flex items-center justify-center hardware-perspective my-2">
+                        
+                        <!-- Orbiting Sapphire Camera Lens Element (Stage 2) -->
+                        <div id="orbitLens" class="satellite-device z-20 opacity-0" style="transform: translate(-155px, -110px) scale(0.7);">
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-[#3a3a3c] to-[#111113] p-1.5 shadow-2xl border border-white/20 flex items-center justify-center">
+                                <div class="w-full h-full rounded-full bg-[radial-gradient(circle_at_30%_30%,#38bdf8_0%,#1e3a8a_45%,#000_85%)] flex items-center justify-center relative">
+                                    <div class="w-7 h-7 rounded-full border border-cyan-300/40 bg-black/80"></div>
+                                    <span class="absolute -bottom-6 text-[10px] font-mono tracking-wider text-white/80 bg-black/80 px-2 py-0.5 rounded-full border border-white/10">ƒ/1.78 SAPPHIRE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Orbiting A18 Pro Silicon Die Element (Stage 2) -->
+                        <div id="orbitChip" class="satellite-device z-20 opacity-0" style="transform: translate(155px, 115px) scale(0.7);">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#2c2c2e] to-[#0c0c0e] p-2 shadow-2xl border border-amber-400/30 flex flex-col items-center justify-center">
+                                <div class="w-full h-full rounded-xl border border-white/15 bg-black/80 flex flex-col items-center justify-center">
+                                    <svg class="w-4 h-4 text-white mb-0.5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.08-7.96-9.24-17.16-12.48-27.6-3.24-10.44-4.86-20.37-4.86-29.8 0-11.11 2.78-20.42 8.34-27.94 5.56-7.52 12.63-11.4 21.2-11.63 4.47 0 9.64 1.38 15.52 4.13 5.87 2.75 9.65 4.16 11.33 4.24 1.34 0 5.53-1.63 12.57-4.89 7.04-3.26 12.98-4.64 17.83-4.13 13.2 1.07 23.13 6.27 29.78 15.61-11.81 7.17-17.61 17.15-17.4 29.93.12 9.98 3.84 18.28 11.15 24.9 4.97 4.55 10.74 7.45 17.31 8.71-1.39 4.27-2.92 8.36-4.59 12.26zM119.22 31.01c0 7.83-2.86 15.13-8.58 21.9-6.89 8.06-15.23 12.72-24.28 11.98-.12-.96-.18-1.98-.18-3.06 0-7.52 3.27-15.57 9.08-22.15 2.89-3.32 6.57-6.08 11.03-8.28 4.46-2.19 8.68-3.41 12.66-3.65.18 1.11.27 2.2.27 3.26z"/></svg>
+                                    <span class="text-[11px] font-bold tracking-tight text-white">A18 PRO</span>
+                                    <span class="text-[8px] text-amber-300/80 font-mono">3NM SILICON</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Photorealistic Apple Watch Ultra 2 Satellite (Stage 3) -->
+                        <div id="orbitWatch" class="satellite-device z-20 opacity-0" style="transform: translate(-185px, -85px) rotate(-14deg) scale(0.75);">
+                            <div class="flex flex-col items-center">
+                                <!-- Top Alpine Loop Band -->
+                                <div class="w-11 h-8 rounded-t-lg bg-gradient-to-b from-[#3a3a3c] to-[#2c2c2e] border-x border-t border-white/15"></div>
+                                <!-- Titanium Case -->
+                                <div class="w-20 h-24 rounded-[22px] bg-gradient-to-br from-[#d6cfc2] via-[#8c8478] to-[#5e584f] p-[3px] shadow-2xl relative">
+                                    <!-- Digital Crown & Action Button -->
+                                    <div class="absolute -right-[4px] top-4 w-[4px] h-5 rounded-r bg-[#ff5e00] border-y border-black/40"></div>
+                                    <div class="absolute -left-[3px] top-6 w-[3px] h-6 rounded-l bg-[#ff5e00]"></div>
+                                    <!-- OLED Watch Face -->
+                                    <div class="w-full h-full rounded-[19px] bg-black p-1.5 flex flex-col justify-between border border-white/10">
+                                        <div class="flex justify-between items-center text-[7px] text-[#ff9f0a] font-mono">
+                                            <span>ALT 240M</span>
+                                            <span>100%</span>
+                                        </div>
+                                        <!-- Live Ticking Watch Dial -->
+                                        <div class="relative w-12 h-12 mx-auto rounded-full border border-white/20 flex items-center justify-center">
+                                            <span id="watchTimeText" class="text-[11px] font-bold text-white tracking-tight">10:09</span>
+                                            <div id="watchSecondHand" class="absolute w-[1px] h-5 bg-[#ff453a] origin-bottom bottom-1/2"></div>
+                                        </div>
+                                        <div class="flex justify-around items-center">
+                                            <span class="w-2.5 h-2.5 rounded-full border border-[#ff375f]"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full border border-[#30d158]"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full border border-[#64d2ff]"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Bottom Band -->
+                                <div class="w-11 h-8 rounded-b-lg bg-gradient-to-t from-[#3a3a3c] to-[#2c2c2e] border-x border-b border-white/15"></div>
+                            </div>
+                        </div>
+
+                        <!-- Photorealistic AirPods Pro 2 Case & Stems Satellite (Stage 3) -->
+                        <div id="orbitAirpods" class="satellite-device z-20 opacity-0" style="transform: translate(185px, -75px) rotate(12deg) scale(0.75);">
+                            <div class="flex flex-col items-center">
+                                <!-- Glossy White MagSafe Case -->
+                                <div class="w-24 h-20 rounded-[22px] bg-gradient-to-b from-[#ffffff] via-[#f2f2f7] to-[#d1d1d6] shadow-2xl border border-white relative flex flex-col items-center justify-center">
+                                    <!-- Lid Seam -->
+                                    <div class="w-full h-[1.5px] bg-black/15 absolute top-6"></div>
+                                    <!-- Metallic Hinge Accent -->
+                                    <div class="w-10 h-1 rounded-full bg-zinc-300 absolute top-[22px]"></div>
+                                    <!-- Glowing Green Charging LED -->
+                                    <div class="w-1.5 h-1.5 rounded-full bg-[#30d158] shadow-[0_0_8px_#30d158] mt-2"></div>
+                                    <span class="text-[8px] font-semibold text-zinc-500 tracking-wider mt-2">AIRPODS PRO</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Photorealistic Brushed Aluminum MagSafe Charger Puck (Glides in on Stage 3) -->
+                        <div id="magsafePuck" class="satellite-device z-10 opacity-0" style="transform: translate(220px, 40px) scale(0.85);">
+                            <div class="relative flex flex-col items-center">
+                                <div class="w-36 h-36 rounded-full bg-gradient-to-br from-[#e5e5ea] via-[#aeaeb2] to-[#636366] p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
+                                    <div class="w-full h-full rounded-full bg-gradient-to-b from-[#f5f5f7] to-[#d1d1d6] border border-white flex items-center justify-center">
+                                        <div class="w-20 h-20 rounded-full border border-zinc-300/80 flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-zinc-400 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.08-7.96-9.24-17.16-12.48-27.6-3.24-10.44-4.86-20.37-4.86-29.8 0-11.11 2.78-20.42 8.34-27.94 5.56-7.52 12.63-11.4 21.2-11.63 4.47 0 9.64 1.38 15.52 4.13 5.87 2.75 9.65 4.16 11.33 4.24 1.34 0 5.53-1.63 12.57-4.89 7.04-3.26 12.98-4.64 17.83-4.13 13.2 1.07 23.13 6.27 29.78 15.61-11.81 7.17-17.61 17.15-17.4 29.93.12 9.98 3.84 18.28 11.15 24.9 4.97 4.55 10.74 7.45 17.31 8.71-1.39 4.27-2.92 8.36-4.59 12.26zM119.22 31.01c0 7.83-2.86 15.13-8.58 21.9-6.89 8.06-15.23 12.72-24.28 11.98-.12-.96-.18-1.98-.18-3.06 0-7.52 3.27-15.57 9.08-22.15 2.89-3.32 6.57-6.08 11.03-8.28 4.46-2.19 8.68-3.41 12.66-3.65.18 1.11.27 2.2.27 3.26z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Woven USB-C Braided Cable -->
+                                <div class="w-2.5 h-28 bg-gradient-to-r from-[#d1d1d6] via-[#f5f5f7] to-[#aeaeb2] rounded-b-full -mt-1 shadow-lg"></div>
+                            </div>
+                        </div>
+
+                        <!-- CENTRAL PHOTOREALISTIC IPHONE ASSEMBLY -->
+                        <div id="iphoneAssembly" class="iphone-assembly z-15">
+                            <!-- Physical Titanium Side Buttons -->
+                            <div class="hw-btn-left top-[92px] h-[24px]"></div> <!-- Action Button -->
+                            <div class="hw-btn-left top-[134px] h-[42px]"></div> <!-- Volume Up -->
+                            <div class="hw-btn-left top-[188px] h-[42px]"></div> <!-- Volume Down -->
+                            <div class="hw-btn-right top-[148px] h-[64px]"></div> <!-- Side Power Button -->
+                            <div class="hw-btn-right top-[248px] h-[46px] opacity-80"></div> <!-- Camera Control Button -->
+
+                            <!-- Brushed Grade 5 Titanium Frame -->
+                            <div id="iphoneChassis" class="iphone-chassis">
+                                <!-- Micro Antenna Bands -->
+                                <div class="antenna-band top-[64px] left-0 w-[3.5px] h-[2px]"></div>
+                                <div class="antenna-band top-[64px] right-0 w-[3.5px] h-[2px]"></div>
+                                <div class="antenna-band bottom-[64px] left-0 w-[3.5px] h-[2px]"></div>
+                                <div class="antenna-band bottom-[64px] right-0 w-[3.5px] h-[2px]"></div>
+
+                                <!-- Ceramic Shield Ultra-Thin Bezel -->
+                                <div class="iphone-bezel">
+                                    <!-- Super Retina XDR OLED Display -->
+                                    <div id="iphoneOled" class="iphone-oled flex flex-col justify-between p-4 text-white">
+                                        
+                                        <!-- Dynamic Glass Reflection Sweep -->
+                                        <div id="oledSheen" class="oled-glass-sheen"></div>
+
+                                        <!-- Dynamic Island / Notch -->
+                                        <div id="dynamicIsland" class="dynamic-island">
+                                            <div class="truedepth-lens"></div>
+                                        </div>
+
+                                        <!-- Pro Triple-Lens Sapphire Camera Array (Fades in on Stage 2) -->
+                                        <div id="cameraOverlay" class="camera-module-overlay p-2.5 grid grid-cols-2 gap-1.5 items-center">
+                                            <div class="sapphire-lens"><div class="sapphire-glass"><div class="sensor-aperture"></div></div></div>
+                                            <div class="sapphire-lens translate-y-4"><div class="sapphire-glass"><div class="sensor-aperture"></div></div></div>
+                                            <div class="sapphire-lens"><div class="sapphire-glass"><div class="sensor-aperture"></div></div></div>
+                                            <div class="flex flex-col items-center justify-between h-full py-1">
+                                                <div class="w-4 h-4 rounded-full bg-amber-100/90 border border-white/40 shadow-inner"></div>
+                                                <div class="w-3.5 h-3.5 rounded-full bg-zinc-900 border border-white/20"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- iOS Top Status Bar -->
+                                        <div class="flex items-center justify-between text-[10px] font-semibold px-2 pt-0.5 z-20 opacity-90">
+                                            <span>9:41</span>
+                                            <div class="flex items-center gap-1">
+                                                <!-- Cellular Bars SVG -->
+                                                <svg class="w-3 h-2.5 fill-current" viewBox="0 0 16 12"><rect x="1" y="8" width="2.2" height="4" rx="0.6"/><rect x="4.6" y="6" width="2.2" height="6" rx="0.6"/><rect x="8.2" y="3.5" width="2.2" height="8.5" rx="0.6"/><rect x="11.8" y="1" width="2.2" height="11" rx="0.6"/></svg>
+                                                <!-- Battery Icon SVG -->
+                                                <div class="w-4 h-2 rounded-[2.5px] border border-white/70 p-[1px] flex items-center">
+                                                    <div class="w-full h-full bg-white rounded-[1px]"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- iOS Lockscreen Clock & Date -->
+                                        <div id="lockscreenClock" class="text-center mt-5 z-20 transition-opacity duration-300">
+                                            <p class="text-[11px] font-medium tracking-wide text-white/80">Monday, November 16</p>
+                                            <p id="iphoneLiveTime" class="text-[54px] leading-none font-bold tracking-tight text-white/95 drop-shadow">9:41</p>
+                                            <!-- Live iOS Lockscreen Widgets -->
+                                            <div class="flex items-center justify-center gap-3 mt-3">
+                                                <div class="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center">
+                                                    <span class="text-[10px] font-semibold">72°</span>
+                                                </div>
+                                                <div class="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center">
+                                                    <div class="w-5 h-5 rounded-full border-2 border-[#30d158] border-t-transparent"></div>
+                                                </div>
+                                                <div class="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/15 flex items-center justify-center">
+                                                    <svg class="w-3.5 h-3.5 text-[#2997ff]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- MagSafe Green Charging Ring Overlay (Triggers on Stage 3) -->
+                                        <div id="magsafeOledRing" class="hidden absolute inset-0 z-30 bg-black/75 backdrop-blur-md flex-col items-center justify-center">
+                                            <div class="relative w-36 h-36 rounded-full border-[5px] border-[#30d158] shadow-[0_0_35px_rgba(48,209,88,0.65)] flex flex-col items-center justify-center">
+                                                <svg class="w-9 h-9 text-[#30d158] magsafe-bolt-glow mb-1" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
+                                                </svg>
+                                                <span class="text-xl font-bold text-white tracking-tight">84%</span>
+                                                <span class="text-[10px] uppercase tracking-widest text-[#30d158] font-semibold">MagSafe</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- iOS Bottom Lockscreen Controls & Home Indicator -->
+                                        <div class="z-20 flex flex-col items-center gap-3 pb-0.5">
+                                            <div class="w-full flex items-center justify-between px-3">
+                                                <div class="w-8 h-8 rounded-full bg-black/45 backdrop-blur-md border border-white/15 flex items-center justify-center">
+                                                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6l1 4-2 3v11h-4V10L8 7l1-4z"/></svg>
+                                                </div>
+                                                <span id="oledModelTag" class="text-[10px] font-medium tracking-widest uppercase text-white/60">Desert Titanium</span>
+                                                <div class="w-8 h-8 rounded-full bg-black/45 backdrop-blur-md border border-white/15 flex items-center justify-center">
+                                                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h2l2-2h6l2 2h2a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+                                                </div>
+                                            </div>
+                                            <div class="w-24 h-1 rounded-full bg-white/85"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Interactive Stage Progress & Quick Controls -->
+                    <div class="z-30 flex flex-col items-center gap-3 w-full max-w-xs">
+                        <!-- 4-Stage Pill Indicator -->
+                        <div class="flex items-center gap-2 bg-[#1d1d1f]/90 backdrop-blur-xl border border-white/15 px-4 py-2 rounded-full shadow-lg">
+                            <span id="dot-1" class="w-6 h-1.5 rounded-full bg-white transition-all"></span>
+                            <span id="dot-2" class="w-2 h-1.5 rounded-full bg-white/30 transition-all"></span>
+                            <span id="dot-3" class="w-2 h-1.5 rounded-full bg-white/30 transition-all"></span>
+                            <span id="dot-4" class="w-2 h-1.5 rounded-full bg-white/30 transition-all"></span>
+                            <span id="stageCaption" class="text-[11px] font-medium text-[#f5f5f7] ml-2">Scroll to explore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT CONTINUOUS EDITORIAL & TECHNICAL TELEMETRY STREAM (Cols 9-12) -->
+            <div class="lg:col-span-4 order-3 space-y-12 lg:space-y-[32vh] py-12 lg:py-[24vh] z-10">
+
+                <!-- Right Card 1: A18 Pro Silicon Architecture -->
+                <article class="apple-bento-card rounded-[28px] p-7 sm:p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#ff9f0a]">Apple Silicon</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">A18 PRO</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight text-white mb-3">
+                        A18 Pro chip. A colossal leap in speed.
+                    </h3>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-6">
+                        Built on second-generation 3-nanometer technology with a 16-core Neural Engine, 6-core GPU with hardware-accelerated ray tracing, and 17% more total system memory bandwidth.
+                    </p>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-white/90">Neural Engine (35 TOPS)</span>
+                                <span class="text-[#ff9f0a] font-medium">2x Faster</span>
+                            </div>
+                            <div class="w-full h-1.5 rounded-full bg-white/10">
+                                <div class="w-[92%] h-full rounded-full bg-gradient-to-r from-[#ff9f0a] to-[#ffd60a]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-white/90">Pro-Class 6-Core GPU</span>
+                                <span class="text-[#2997ff] font-medium">+20% Peak</span>
+                            </div>
+                            <div class="w-full h-1.5 rounded-full bg-white/10">
+                                <div class="w-[84%] h-full rounded-full bg-gradient-to-r from-[#0071e3] to-[#64d2ff]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Right Card 2: Camera Control & Studio Audio -->
+                <article class="apple-bento-card rounded-[28px] p-7 sm:p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#64d2ff]">Tactile Precision</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">CAMERA CONTROL</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight text-white mb-3">
+                        Take total Camera Control.
+                    </h3>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-5">
+                        A sapphire crystal surface coupled to a conductive layer and high-precision force sensor gives you tactile feedback as you slide to adjust exposure, depth of field, and focal length.
+                    </p>
+                    <div class="p-4 rounded-2xl bg-black/60 border border-white/10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-[#86868b]">Spatial Audio Capture</p>
+                            <p class="text-sm font-medium text-white">4 Studio-Quality Mics</p>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-[#64d2ff]/15 text-[#64d2ff] text-xs font-medium">Audio Mix</span>
+                    </div>
+                </article>
+
+                <!-- Right Card 3: Ecosystem Synchronization (Watch + AirPods) -->
+                <article class="apple-bento-card rounded-[28px] p-7 sm:p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#30d158]">Seamless Continuity</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">ECOSYSTEM</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight text-white mb-3">
+                        Better together. Watch &amp; AirPods.
+                    </h3>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-5">
+                        Ultra Wideband second-generation chips enable Precision Finding for AirPods Pro 2 and automatic handoff between iPhone and Apple Watch Ultra 2.
+                    </p>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-black/50 border border-white/10">
+                            <span class="text-white font-medium">Apple Watch Ultra 2</span>
+                            <span class="text-[#30d158]">Connected • 36 hr battery</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-black/50 border border-white/10">
+                            <span class="text-white font-medium">AirPods Pro 2 (USB-C)</span>
+                            <span class="text-[#2997ff]">Adaptive Audio Active</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Right Card 4: Battery Endurance -->
+                <article class="apple-bento-card rounded-[28px] p-7 sm:p-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#30d158]">All-Day Power</span>
+                        <span class="text-[11px] text-[#86868b] font-mono">33 HOURS</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold tracking-tight text-white mb-3">
+                        A huge leap in battery life.
+                    </h3>
+                    <p class="text-[15px] text-[#86868b] leading-relaxed mb-5">
+                        Optimized internal thermal architecture houses a larger high-density battery working in tandem with A18 Pro efficiency for up to 33 hours of video playback.
+                    </p>
+                    <button onclick="openAppleModal('Compare All Models', 'Compare battery life, camera specs, and displays across iPhone 16 Pro Max, iPhone 16 Pro, iPhone 16, and iPhone 11.', 'Full Spec Comparison', 'Apple.com')" class="w-full py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-xs font-medium text-white transition-colors">
+                        Compare all iPhone models
+                    </button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. APPLE STORE ECOSYSTEM & HARDWARE BENTO GRID -->
+    <section id="ecosystem-bento" class="relative z-20 bg-[#000000] border-t border-white/10 py-24 px-4 sm:px-6">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#2997ff] mb-2">Apple Ecosystem</p>
+                    <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-white">Explore the lineup.</h2>
+                </div>
+                <button onclick="openAppleModal('Apple Store', 'Explore the complete Apple hardware lineup with free delivery and personal setup.', 'All Flagship Devices', 'Shop Now')" class="text-[#2997ff] hover:underline text-[17px] inline-flex items-center gap-1 self-start md:self-auto">
+                    Shop all products
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- 2-Column Flagship Apple Store Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Card 1: iPhone 16 Pro & iPhone 11 Comparison -->
+                <div class="rounded-[30px] bg-[#161617] border border-white/10 p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-white/25 transition-all">
+                    <div class="text-center mb-8">
+                        <span class="text-[11px] font-semibold uppercase tracking-widest text-[#d7cbb8]">iPhone 16 Pro</span>
+                        <h3 class="text-3xl sm:text-4xl font-semibold text-white mt-1 mb-2">Titanium. So strong. So light.</h3>
+                        <p class="text-[#86868b] text-base mb-5">From $999 or $41.62/mo. for 24 mo.</p>
+                        <div class="flex items-center justify-center gap-4">
+                            <button onclick="openAppleModal('iPhone 16 Pro', '6.3-inch or 6.9-inch Super Retina XDR display. A18 Pro chip. Pro camera system.', 'Desert Titanium • 256GB', '$999')" class="bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm px-5 py-2 rounded-full transition-colors">Learn more</button>
+                            <button onclick="openAppleModal('Buy iPhone 16 Pro', 'Configure storage, finish, and AppleCare+ coverage.', 'Desert Titanium • 256GB', '$999')" class="border border-[#0071e3] text-[#2997ff] hover:bg-[#0071e3] hover:text-white text-sm px-5 py-2 rounded-full transition-colors">Buy</button>
+                        </div>
+                    </div>
+                    <!-- Photorealistic Dual iPhone Finishes Illustration -->
+                    <div class="flex items-end justify-center gap-5 pt-4">
+                        <div class="w-32 h-56 rounded-t-[28px] bg-gradient-to-b from-[#d7cbb8] to-[#7a7062] p-[2.5px] shadow-2xl group-hover:-translate-y-2 transition-transform duration-500">
+                            <div class="w-full h-full rounded-t-[26px] bg-black p-1.5">
+                                <div class="w-full h-full rounded-t-[22px] bg-[radial-gradient(circle_at_30%_30%,#d49b6a,#140f0c)] flex flex-col items-center pt-2">
+                                    <div class="w-12 h-3.5 rounded-full bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-32 h-52 rounded-t-[28px] bg-gradient-to-b from-[#d8c8f0] to-[#8f79b8] p-[2.5px] shadow-2xl group-hover:-translate-y-1 transition-transform duration-500">
+                            <div class="w-full h-full rounded-t-[26px] bg-black p-1.5">
+                                <div class="w-full h-full rounded-t-[22px] bg-[radial-gradient(circle_at_70%_25%,#c084fc,#1e1b4b)] flex flex-col items-center pt-2">
+                                    <div class="w-14 h-3.5 rounded-b-xl bg-black"></div>
+                                    <span class="mt-auto mb-4 text-[10px] font-semibold tracking-wider text-white/80">iPhone 11</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Apple Watch Ultra 2 -->
+                <div class="rounded-[30px] bg-[#161617] border border-white/10 p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-white/25 transition-all">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-white mb-1">
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.08-7.96-9.24-17.16-12.48-27.6-3.24-10.44-4.86-20.37-4.86-29.8 0-11.11 2.78-20.42 8.34-27.94 5.56-7.52 12.63-11.4 21.2-11.63 4.47 0 9.64 1.38 15.52 4.13 5.87 2.75 9.65 4.16 11.33 4.24 1.34 0 5.53-1.63 12.57-4.89 7.04-3.26 12.98-4.64 17.83-4.13 13.2 1.07 23.13 6.27 29.78 15.61-11.81 7.17-17.61 17.15-17.4 29.93.12 9.98 3.84 18.28 11.15 24.9 4.97 4.55 10.74 7.45 17.31 8.71-1.39 4.27-2.92 8.36-4.59 12.26zM119.22 31.01c0 7.83-2.86 15.13-8.58 21.9-6.89 8.06-15.23 12.72-24.28 11.98-.12-.96-.18-1.98-.18-3.06 0-7.52 3.27-15.57 9.08-22.15 2.89-3.32 6.57-6.08 11.03-8.28 4.46-2.19 8.68-3.41 12.66-3.65.18 1.11.27 2.2.27 3.26z"/></svg>
+                            WATCH <span class="text-[#ff5e00]">ULTRA 2</span>
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl font-semibold text-white mt-1 mb-2">New finish. Never quit.</h3>
+                        <p class="text-[#86868b] text-base mb-5">49mm aerospace-grade Black Titanium case.</p>
+                        <div class="flex items-center justify-center gap-4">
+                            <button onclick="openAppleModal('Apple Watch Ultra 2', 'S9 SiP, 3000-nit Sapphire crystal display, precision dual-frequency GPS, and up to 72 hours in Low Power Mode.', '49mm Black Titanium', '$799')" class="bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm px-5 py-2 rounded-full transition-colors">Learn more</button>
+                            <button onclick="openAppleModal('Buy Apple Watch Ultra 2', 'Choose Milanese Loop, Alpine Loop, or Ocean Band.', '49mm Black Titanium', '$799')" class="border border-[#0071e3] text-[#2997ff] hover:bg-[#0071e3] hover:text-white text-sm px-5 py-2 rounded-full transition-colors">Buy</button>
+                        </div>
+                    </div>
+                    <!-- Detailed Watch Ultra 2 Hardware Render -->
+                    <div class="flex flex-col items-center justify-center pt-2 group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-16 h-10 rounded-t-xl bg-gradient-to-b from-[#2c2c2e] to-[#1c1c1e] border-x border-t border-white/15"></div>
+                        <div class="w-32 h-38 rounded-[32px] bg-gradient-to-br from-[#52525b] via-[#27272a] to-[#09090b] p-1.5 shadow-2xl relative">
+                            <div class="w-full h-full rounded-[27px] bg-black p-3 flex flex-col justify-between border border-white/10">
+                                <div class="flex justify-between text-[9px] font-mono text-[#ff9f0a]">
+                                    <span>N 40°46'</span>
+                                    <span>W 72°21'</span>
+                                </div>
+                                <div class="my-2 text-center">
+                                    <p class="text-2xl font-bold text-white tracking-tight">10:09</p>
+                                    <p class="text-[9px] uppercase tracking-widest text-[#30d158] mt-0.5">Wayfinder Active</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-1.5">
+                                    <div class="h-1.5 rounded-full bg-[#ff375f]"></div>
+                                    <div class="h-1.5 rounded-full bg-[#30d158]"></div>
+                                    <div class="h-1.5 rounded-full bg-[#64d2ff]"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-16 h-10 rounded-b-xl bg-gradient-to-t from-[#2c2c2e] to-[#1c1c1e] border-x border-b border-white/15"></div>
+                    </div>
+                </div>
+
+                <!-- Card 3: AirPods Pro 2 -->
+                <div class="rounded-[30px] bg-[#161617] border border-white/10 p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-white/25 transition-all">
+                    <div class="text-center mb-8">
+                        <span class="text-[11px] font-semibold uppercase tracking-widest text-[#2997ff]">AirPods Pro 2</span>
+                        <h3 class="text-3xl sm:text-4xl font-semibold text-white mt-1 mb-2">Now with a Hearing Aid feature.</h3>
+                        <p class="text-[#86868b] text-base mb-5">H2 chip. Up to 2x more Active Noise Cancellation.</p>
+                        <div class="flex items-center justify-center gap-4">
+                            <button onclick="openAppleModal('AirPods Pro 2', 'Powered by the Apple H2 chip with Adaptive Transparency, Personalized Spatial Audio, and USB-C MagSafe Charging Case.', 'USB-C MagSafe Case', '$249')" class="bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm px-5 py-2 rounded-full transition-colors">Learn more</button>
+                            <button onclick="openAppleModal('Buy AirPods Pro 2', 'Includes free personalized engraving and four pairs of silicone ear tips.', 'USB-C MagSafe Case', '$249')" class="border border-[#0071e3] text-[#2997ff] hover:bg-[#0071e3] hover:text-white text-sm px-5 py-2 rounded-full transition-colors">Buy</button>
+                        </div>
+                    </div>
+                    <!-- Sculpted AirPods Pro Case Illustration -->
+                    <div class="flex items-center justify-center py-4 group-hover:-translate-y-1.5 transition-transform duration-500">
+                        <div class="w-40 h-32 rounded-[34px] bg-gradient-to-b from-[#ffffff] via-[#f2f2f7] to-[#c7c7cc] shadow-[0_25px_50px_rgba(0,0,0,0.85)] border border-white relative flex flex-col items-center justify-center">
+                            <div class="w-full h-[2px] bg-black/15 absolute top-10"></div>
+                            <div class="w-16 h-1.5 rounded-full bg-zinc-300 absolute top-[37px]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#30d158] shadow-[0_0_10px_#30d158] mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: MagSafe & Accessories -->
+                <div class="rounded-[30px] bg-[#161617] border border-white/10 p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-white/25 transition-all">
+                    <div class="text-center mb-8">
+                        <span class="text-[11px] font-semibold uppercase tracking-widest text-[#30d158]">MagSafe Accessories</span>
+                        <h3 class="text-3xl sm:text-4xl font-semibold text-white mt-1 mb-2">Snap on a magnetic case, wallet, or charger.</h3>
+                        <p class="text-[#86868b] text-base mb-5">Fast wireless charging up to 25W.</p>
+                        <div class="flex items-center justify-center gap-4">
+                            <button onclick="openAppleModal('MagSafe Charger (1 m)', 'Engineered for faster wireless charging up to 25W when paired with a 30W USB-C Power Adapter.', 'Braided USB-C Cable', '$39')" class="bg-[#0071e3] hover:bg-[#0077ed] text-white text-sm px-5 py-2 rounded-full transition-colors">Shop MagSafe</button>
+                        </div>
+                    </div>
+                    <!-- Brushed Aluminum MagSafe Puck Render -->
+                    <div class="flex items-center justify-center py-4 group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-[#e5e5ea] via-[#aeaeb2] to-[#636366] p-1.5 shadow-2xl">
+                            <div class="w-full h-full rounded-full bg-gradient-to-b from-[#f5f5f7] to-[#d1d1d6] border border-white flex items-center justify-center">
+                                <div class="w-16 h-16 rounded-full border border-zinc-300 flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. AUTHENTIC APPLE.COM MULTI-COLUMN LEGAL & DIRECTORY FOOTER -->
+    <footer id="footer-directory" class="bg-[#1d1d1f] text-[#86868b] text-[12px] leading-[1.4] pt-8 pb-12 px-4 sm:px-6 border-t border-white/10">
+        <div class="max-w-[1024px] mx-auto">
+            <!-- Legal Footnotes -->
+            <div class="border-b border-white/10 pb-6 space-y-2.5 text-[11px]">
+                <p>1. Trade-in values will vary based on the condition, year, and configuration of your eligible trade-in device. Not all devices are eligible for credit. You must be at least 18 years old to be eligible to trade in for credit or for an Apple Gift Card.</p>
+                <p>2. Apple Intelligence is available in beta on all iPhone 16 models, iPhone 15 Pro, and iPhone 15 Pro Max, with Siri and device language set to U.S. English, as an iOS 18 update.</p>
+                <p>3. Testing conducted by Apple using preproduction iPhone 16 Pro units and software, USB-C Charge Cable with Apple 30W USB-C Power Adapter, and Apple MagSafe Charger (1m). Fast-charge testing conducted with drained iPhone units.</p>
+            </div>
+
+            <!-- 5-Column Apple Directory -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 py-7 border-b border-white/10">
+                <div>
+                    <h4 class="font-semibold text-[#f5f5f7] mb-2.5">Shop and Learn</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#choreography" class="hover:underline">Store</a></li>
+                        <li><a href="#ecosystem-bento" class="hover:underline">Mac</a></li>
+                        <li><a href="#ecosystem-bento" class="hover:underline">iPad</a></li>
+                        <li><a href="#choreography" class="hover:underline">iPhone</a></li>
+                        <li><a href="#ecosystem-bento" class="hover:underline">Watch</a></li>
+                        <li><a href="#ecosystem-bento" class="hover:underline">AirPods</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-[#f5f5f7] mb-2.5">Apple Wallet</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#footer-directory" class="hover:underline">Wallet</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple Card</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple Pay</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple Cash</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-[#f5f5f7] mb-2.5">Account</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#footer-directory" class="hover:underline">Manage Your Apple Account</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple Store Account</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">iCloud.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-[#f5f5f7] mb-2.5">Entertainment</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#footer-directory" class="hover:underline">Apple One</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple TV+</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple Music</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Apple Arcade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-[#f5f5f7] mb-2.5">Apple Values</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#footer-directory" class="hover:underline">Accessibility</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Environment</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Privacy</a></li>
+                        <li><a href="#footer-directory" class="hover:underline">Supply Chain</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Row -->
+            <div class="pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px]">
+                <p>Copyright © 2026 Apple Inc. All rights reserved.</p>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <a href="#footer-directory" class="hover:underline">Privacy Policy</a>
+                    <span class="text-white/20">|</span>
+                    <a href="#footer-directory" class="hover:underline">Terms of Use</a>
+                    <span class="text-white/20">|</span>
+                    <a href="#footer-directory" class="hover:underline">Sales and Refunds</a>
+                    <span class="text-white/20">|</span>
+                    <a href="#footer-directory" class="hover:underline">Legal</a>
+                    <span class="text-white/20">|</span>
+                    <a href="#footer-directory" class="hover:underline">Site Map</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCROLL CHOREOGRAPHY, FINISH SWITCHER & LIVE HARDWARE TELEMETRY ENGINE -->
+    <script>
+        // Authentic Apple Finishes Configuration
+        const FINISHES = {
+            desert: {
+                name: 'Desert Titanium',
+                model: 'iPhone 16 Pro',
+                eyebrow: 'iPhone 16 Pro',
+                headline: 'Hello, Apple Intelligence.',
+                edge: 'linear-gradient(135deg, #d7cbb8 0%, #8e8373 25%, #e5dac9 50%, #6d6457 75%, #c5b8a5 100%)',
+                wallpaper: 'radial-gradient(circle at 25% 20%, #d49b6a 0%, transparent 45%), radial-gradient(circle at 80% 35%, #5c4332 0%, transparent 50%), radial-gradient(circle at 40% 85%, #8c5e3c 0%, transparent 55%), linear-gradient(180deg, #140f0c 0%, #050403 100%)',
+                glow: 'rgba(215, 203, 184, 0.22)',
+                islandWidth: '84px',
+                islandRadius: '999px',
+                islandTop: '11px'
+            },
+            natural: {
+                name: 'Natural Titanium',
+                model: 'iPhone 16 Pro',
+                eyebrow: 'iPhone 16 Pro',
+                headline: 'Aerospace-Grade Titanium.',
+                edge: 'linear-gradient(135deg, #d6d4ce 0%, #8d8b85 25%, #e6e4de 50%, #6e6c67 75%, #c7c5bf 100%)',
+                wallpaper: 'radial-gradient(circle at 28% 22%, #a3a39e 0%, transparent 45%), radial-gradient(circle at 75% 45%, #4a4a48 0%, transparent 52%), radial-gradient(circle at 45% 85%, #73736e 0%, transparent 55%), linear-gradient(180deg, #141414 0%, #050505 100%)',
+                glow: 'rgba(214, 212, 206, 0.20)',
+                islandWidth: '84px',
+                islandRadius: '999px',
+                islandTop: '11px'
+            },
+            black: {
+                name: 'Black Titanium',
+                model: 'iPhone 16 Pro',
+                eyebrow: 'iPhone 16 Pro',
+                headline: 'Obsidian Precision.',
+                edge: 'linear-gradient(135deg, #525256 0%, #242426 25%, #68686e 50%, #18181a 75%, #3f3f44 100%)',
+                wallpaper: 'radial-gradient(circle at 30% 25%, #3b82f6 0%, transparent 42%), radial-gradient(circle at 75% 65%, #1e293b 0%, transparent 50%), linear-gradient(180deg, #090d16 0%, #000000 100%)',
+                glow: 'rgba(59, 130, 246, 0.20)',
+                islandWidth: '84px',
+                islandRadius: '999px',
+                islandTop: '11px'
+            },
+            white: {
+                name: 'White Titanium',
+                model: 'iPhone 16 Pro',
+                eyebrow: 'iPhone 16 Pro',
+                headline: 'Pure Titanium Brilliance.',
+                edge: 'linear-gradient(135deg, #ffffff 0%, #b8b8bd 25%, #f5f5f7 50%, #98989e 75%, #e5e5ea 100%)',
+                wallpaper: 'radial-gradient(circle at 25% 25%, #e2e8f0 0%, transparent 45%), radial-gradient(circle at 75% 40%, #64748b 0%, transparent 50%), linear-gradient(180deg, #1e293b 0%, #090d16 100%)',
+                glow: 'rgba(245, 245, 247, 0.22)',
+                islandWidth: '84px',
+                islandRadius: '999px',
+                islandTop: '11px'
+            },
+            purple11: {
+                name: 'iPhone 11 Purple',
+                model: 'iPhone 11',
+                eyebrow: 'iPhone 11 Classic Edition',
+                headline: 'Just the right amount of everything.',
+                edge: 'linear-gradient(135deg, #dfd2f5 0%, #9b84c4 25%, #ece2fc 50%, #7d66a6 75%, #cbbbe8 100%)',
+                wallpaper: 'radial-gradient(circle at 25% 25%, #c084fc 0%, transparent 48%), radial-gradient(circle at 78% 45%, #7e22ce 0%, transparent 50%), radial-gradient(circle at 45% 85%, #ec4899 0%, transparent 55%), linear-gradient(180deg, #1e1035 0%, #090412 100%)',
+                glow: 'rgba(192, 132, 252, 0.24)',
+                islandWidth: '126px',
+                islandRadius: '0 0 16px 16px',
+                islandTop: '0px'
+            },
+            mint11: {
+                name: 'iPhone 11 Green',
+                model: 'iPhone 11',
+                eyebrow: 'iPhone 11 Classic Edition',
+                headline: 'Liquid Retina. All-day battery.',
+                edge: 'linear-gradient(135deg, #c7ebd8 0%, #7eb398 25%, #dcf5e8 50%, #62967c 75%, #b1dec7 100%)',
+                wallpaper: 'radial-gradient(circle at 25% 25%, #34d399 0%, transparent 48%), radial-gradient(circle at 78% 45%, #0d9488 0%, transparent 50%), radial-gradient(circle at 45% 85%, #38bdf8 0%, transparent 55%), linear-gradient(180deg, #062822 0%, #020d0b 100%)',
+                glow: 'rgba(52, 211, 153, 0.22)',
+                islandWidth: '126px',
+                islandRadius: '0 0 16px 16px',
+                islandTop: '0px'
+            }
+        };
+
+        let currentFinishKey = 'desert';
+        let currentFinishName = 'Desert Titanium';
+
+        function setFinish(key) {
+            const cfg = FINISHES[key];
+            if (!cfg) return;
+            currentFinishKey = key;
+            currentFinishName = cfg.name;
+
+            document.documentElement.style.setProperty('--chassis-edge', cfg.edge);
+            document.documentElement.style.setProperty('--wallpaper-grad', cfg.wallpaper);
+            document.documentElement.style.setProperty('--rim-glow', cfg.glow);
+
+            document.getElementById('leftSwatchLabel').textContent = cfg.name;
+            document.getElementById('oledModelTag').textContent = cfg.name;
+            document.getElementById('ribbonProductName').textContent = cfg.model;
+            document.getElementById('stageEyebrow').textContent = cfg.eyebrow;
+            document.getElementById('stageHeadline').textContent = cfg.headline;
+
+            const island = document.getElementById('dynamicIsland');
+            island.style.width = cfg.islandWidth;
+            island.style.borderRadius = cfg.islandRadius;
+            island.style.top = cfg.islandTop;
+
+            const ambient = document.getElementById('ambientStudioGlow');
+            ambient.style.background = `radial-gradient(circle at 50% 48%, ${cfg.glow} 0%, rgba(0, 0, 0, 0) 64%)`;
+        }
+
+        // Modal Handlers (Never using alert/confirm)
+        function openAppleModal(title, body, finishText, priceText) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').textContent = body;
+            document.getElementById('modalFinishLabel').textContent = finishText;
+            document.getElementById('modalPriceLabel').textContent = priceText;
+            const modal = document.getElementById('appleModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeAppleModal() {
+            const modal = document.getElementById('appleModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Live Ticking Clock for iPhone OLED & Apple Watch Ultra 2
+        function updateLiveHardwareClocks() {
+            const now = new Date();
+            const hours = now.getHours() % 12 || 12;
+            const mins = String(now.getMinutes()).padStart(2, '0');
+            const secs = now.getSeconds();
+            const timeStr = `${hours}:${mins}`;
+
+            const iphoneTime = document.getElementById('iphoneLiveTime');
+            const watchTime = document.getElementById('watchTimeText');
+            const watchHand = document.getElementById('watchSecondHand');
+
+            if (iphoneTime) iphoneTime.textContent = timeStr;
+            if (watchTime) watchTime.textContent = timeStr;
+            if (watchHand) watchHand.style.transform = `rotate(${secs * 6}deg)`;
+        }
+        setInterval(updateLiveHardwareClocks, 1000);
+        updateLiveHardwareClocks();
+
+        // Scroll-Choreographed 4-Stage Hardware Transformation Loop (requestAnimationFrame)
+        const scrollTrack = document.getElementById('scrollTrack');
+        const iphoneAssembly = document.getElementById('iphoneAssembly');
+        const oledSheen = document.getElementById('oledSheen');
+        const cameraOverlay = document.getElementById('cameraOverlay');
+        const orbitLens = document.getElementById('orbitLens');
+        const orbitChip = document.getElementById('orbitChip');
+        const orbitWatch = document.getElementById('orbitWatch');
+        const orbitAirpods = document.getElementById('orbitAirpods');
+        const magsafePuck = document.getElementById('magsafePuck');
+        const magsafeOledRing = document.getElementById('magsafeOledRing');
+        const stageCaption = document.getElementById('stageCaption');
+
+        const dots = [
+            document.getElementById('dot-1'),
+            document.getElementById('dot-2'),
+            document.getElementById('dot-3'),
+            document.getElementById('dot-4')
+        ];
+
+        let targetProgress = 0;
+        let smoothProgress = 0;
+
+        function computeScrollProgress() {
+            if (!scrollTrack) return;
+            const rect = scrollTrack.getBoundingClientRect();
+            const scrollableDistance = rect.height - window.innerHeight;
+            if (scrollableDistance <= 0) {
+                targetProgress = 0;
+                return;
+            }
+            const scrolled = -rect.top;
+            targetProgress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
+        }
+
+        function setActiveStageDot(stageIndex) {
+            dots.forEach((dot, idx) => {
+                if (!dot) return;
+                if (idx === stageIndex) {
+                    dot.classList.remove('w-2', 'bg-white/30');
+                    dot.classList.add('w-6', 'bg-white');
+                } else {
+                    dot.classList.remove('w-6', 'bg-white');
+                    dot.classList.add('w-2', 'bg-white/30');
+                }
+            });
+        }
+
+        function renderChoreography() {
+            // Smooth spring-like interpolation
+            smoothProgress += (targetProgress - smoothProgress) * 0.12;
+            const p = smoothProgress;
+
+            // Default hardware transforms
+            let rotY = Math.sin(p * Math.PI * 2) * 14;
+            let rotX = Math.cos(p * Math.PI * 1.5) * 6;
+            let rotZ = 0;
+            let scale = 1;
+
+            // Specular glass sheen follows scroll angle
+            if (oledSheen) {
+                oledSheen.style.transform = `translateX(${(p - 0.5) * 90}%) rotate(15deg)`;
+            }
+
+            // STAGE 1: 0% - 25% (Hero Arrival & Studio Titanium Light Sweep)
+            if (p < 0.25) {
+                const local = p / 0.25;
+                rotY = -12 + local * 20;
+                rotX = 6 - local * 6;
+                scale = 0.96 + local * 0.05;
+                setActiveStageDot(0);
+                stageCaption.textContent = 'Stage 1 · Grade 5 Titanium';
+            }
+            // STAGE 2: 25% - 50% (Pro Camera System & A18 Pro Silicon Orbit)
+            else if (p < 0.50) {
+                const local = (p - 0.25) / 0.25;
+                rotY = 8 - local * 18;
+                rotX = local * 8;
+                rotZ = -2 + local * 4;
+                scale = 1.02;
+                setActiveStageDot(1);
+                stageCaption.textContent = 'Stage 2 · Pro Camera & A18 Pro';
+            }
+            // STAGE 3: 50% - 75% (MagSafe Magnetic Snap + Watch & AirPods Orbit)
+            else if (p < 0.75) {
+                const local = (p - 0.50) / 0.25;
+                rotY = -10 + local * 10;
+                rotX = 8 - local * 8;
+                scale = 0.97;
+                setActiveStageDot(2);
+                stageCaption.textContent = 'Stage 3 · MagSafe & Ecosystem';
+            }
+            // STAGE 4: 75% - 100% (Finish & Colorway Showcase)
+            else {
+                const local = (p - 0.75) / 0.25;
+                rotY = Math.sin(local * Math.PI) * 16;
+                rotX = 4 * (1 - local);
+                scale = 1.0 + local * 0.03;
+                setActiveStageDot(3);
+                stageCaption.textContent = 'Stage 4 · Finishes & Editions';
+            }
+
+            if (iphoneAssembly) {
+                iphoneAssembly.style.transform = `rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg) rotateZ(${rotZ.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+            }
+
+            // Stage 2 Optics & Chip Visibility (22% - 52%)
+            const stage2Alpha = p > 0.20 && p < 0.52 ? Math.sin(((p - 0.20) / 0.32) * Math.PI) : 0;
+            if (cameraOverlay) {
+                cameraOverlay.style.opacity = stage2Alpha.toFixed(2);
+                cameraOverlay.style.transform = `scale(${(0.88 + stage2Alpha * 0.12).toFixed(3)})`;
+            }
+            if (orbitLens) {
+                orbitLens.style.opacity = stage2Alpha.toFixed(2);
+                orbitLens.style.transform = `translate(${(-155 - stage2Alpha * 18).toFixed(1)}px, ${(-115 + Math.sin(p * 12) * 8).toFixed(1)}px) scale(${(0.85 + stage2Alpha * 0.18).toFixed(3)})`;
+            }
+            if (orbitChip) {
+                orbitChip.style.opacity = stage2Alpha.toFixed(2);
+                orbitChip.style.transform = `translate(${(155 + stage2Alpha * 18).toFixed(1)}px, ${(115 - Math.sin(p * 12) * 8).toFixed(1)}px) scale(${(0.85 + stage2Alpha * 0.18).toFixed(3)})`;
+            }
+
+            // Stage 3 Ecosystem & MagSafe Snap Visibility (48% - 78%)
+            const stage3Alpha = p > 0.48 && p < 0.78 ? Math.sin(((p - 0.48) / 0.30) * Math.PI) : 0;
+            if (orbitWatch) {
+                orbitWatch.style.opacity = stage3Alpha.toFixed(2);
+                orbitWatch.style.transform = `translate(${(-180 - stage3Alpha * 15).toFixed(1)}px, ${(-70 + Math.cos(p * 10) * 10).toFixed(1)}px) rotate(-12deg) scale(${(0.85 + stage3Alpha * 0.15).toFixed(3)})`;
+            }
+            if (orbitAirpods) {
+                orbitAirpods.style.opacity = stage3Alpha.toFixed(2);
+                orbitAirpods.style.transform = `translate(${(180 + stage3Alpha * 15).toFixed(1)}px, ${(-65 - Math.cos(p * 10) * 10).toFixed(1)}px) rotate(12deg) scale(${(0.85 + stage3Alpha * 0.15).toFixed(3)})`;
+            }
+            if (magsafePuck) {
+                // Glides from x=210px toward x=0px behind iPhone as stage3Alpha peaks
+                const snapX = (1 - stage3Alpha) * 210;
+                magsafePuck.style.opacity = stage3Alpha.toFixed(2);
+                magsafePuck.style.transform = `translate(${snapX.toFixed(1)}px, 35px) scale(${(0.92 + stage3Alpha * 0.08).toFixed(3)})`;
+            }
+            if (magsafeOledRing) {
+                if (stage3Alpha > 0.62) {
+                    if (magsafeOledRing.classList.contains('hidden')) {
+                        magsafeOledRing.classList.remove('hidden');
+                        magsafeOledRing.classList.add('flex', 'magsafe-ring-active');
+                    }
+                } else {
+                    if (!magsafeOledRing.classList.contains('hidden')) {
+                        magsafeOledRing.classList.add('hidden');
+                        magsafeOledRing.classList.remove('flex', 'magsafe-ring-active');
+                    }
+                }
+            }
+
+            requestAnimationFrame(renderChoreography);
+        }
+
+        window.addEventListener('scroll', computeScrollProgress, { passive: true });
+        window.addEventListener('resize', computeScrollProgress, { passive: true });
+        computeScrollProgress();
+        requestAnimationFrame(renderChoreography);
+    </script>
+</body>
+</html>
